@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Primary colors */
+    --red: hsl(4, 100%, 67%);
+
+    /* Neutral colors */
+    --blue-800: hsl(234, 29%, 20%);
+    --blue-700: hsl(235, 18%, 26%);
+    --grey: hsl(0, 0%,58%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Typography */
+    --primary-font: "Roboto";
+    --regular: 400;
+    --bold: 700;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    font-family: var(--primary-font);
+    color: var(--blue-800);
+    background-color: var(--blue-700);
+}
+
+main {
+    display: flex;
+    height: 32rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+}
+
+.subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 26rem;
+    padding: 2rem;
+}
+
+.subscription > h1 {
+    font-size: 3rem;
+}
+
+.features {
+    margin-top: 1rem;
+}
+
+.features > h2 {
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+    line-height: 1.4;
+}
+
+.features > ul {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.features > ul li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+}
+
+.features > ul li + li {
+    margin-top: 0.5rem;
+}
+
+form {
+    margin-top: 2rem;
+}
+
+.email-address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
+    row-gap: 0.5rem;
+}
+
+.email-address > label {
+    font-size: 0.75rem;
+    font-weight: var(--bold);
+}
+
+.email-address .error {
+    text-align: right;
+    font-size: 0.75rem;
+    font-weight: var(--bold);
+    color: var(--red);
+}
+
+.email-address .error.empty {
+    display: none;
+}
+
+.email-address > input {
+    grid-column: 1 / -1;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--grey);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+    color: var(--blue-800);
+}
+
+.email-address > input::placeholder {
+    color: var(--grey);
+}
+
+form > button {
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: var(--bold);
+    color: var(--white);
+    background-color: var(--blue-800);
+}
