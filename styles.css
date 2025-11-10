@@ -132,3 +132,74 @@ form > button {
     color: var(--white);
     background-color: var(--blue-800);
 }
+
+.illustration {
+    object-fit: contain;
+}
+
+.illustration.tablet, .illustration.mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 52rem) {
+    body {
+        padding: 2rem 0;
+    }
+
+    main {
+        flex-direction: column;
+        width: 32rem;
+        height: fit-content;
+    }
+
+    .illustration.desktop {
+        display: none;
+    }
+
+    .illustration.tablet {
+        display: block;
+    }
+
+    .subscription {
+        justify-content: flex-start;
+        width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 34rem) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        width: 100vw;
+        min-height: 100vh;
+        padding-top: 0;
+        border-radius: 0;
+    }
+
+    .illustration.tablet {
+        display: none;
+    }
+
+    .illustration.mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 25rem) {
+    .subscription {
+        padding: 1rem;
+    }
+
+    .subscription > h1 {
+        font-size: 2.5rem;
+    }
+
+    .features > ul li + li {
+        margin-top: 0.75rem;
+    }
+}
