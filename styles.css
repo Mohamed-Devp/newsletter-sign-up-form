@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Primary colors */
+    --red: hsl(4, 100%, 67%);
+
+    /* Neutral colors */
+    --blue-800: hsl(234, 29%, 20%);
+    --blue-700: hsl(235, 18%, 26%);
+    --grey: hsl(0, 0%,58%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Typography */
+    --primary-font: "Roboto";
+    --regular: 400;
+    --bold: 700;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    font-family: var(--primary-font);
+    color: var(--blue-800);
+    background-color: var(--blue-700);
+}
+
+main {
+    display: flex;
+    height: 32rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+}
+
+.subscription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 26rem;
+    padding: 2rem;
+}
+
+.subscription > h1 {
+    font-size: 3rem;
+}
+
+.features {
+    margin-top: 1rem;
+}
+
+.features > h2 {
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+    line-height: 1.4;
+}
+
+.features > ul {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.features > ul li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+}
+
+.features > ul li + li {
+    margin-top: 0.5rem;
+}
+
+form {
+    margin-top: 2rem;
+}
+
+.email-address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
+    row-gap: 0.5rem;
+}
+
+.email-address > label {
+    font-size: 0.75rem;
+    font-weight: var(--bold);
+}
+
+.email-address .error {
+    text-align: right;
+    font-size: 0.75rem;
+    font-weight: var(--bold);
+    color: var(--red);
+}
+
+.email-address .error.empty {
+    display: none;
+}
+
+.email-address > input {
+    grid-column: 1 / -1;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--grey);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: var(--regular);
+    color: var(--blue-800);
+    transition: border-color 0.2s ease-in;
+}
+
+.email-address > input::placeholder {
+    color: var(--grey);
+}
+
+.email-address > input:focus {
+    border-color: var(--blue-700);
+}
+
+form > button {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1.25rem;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: var(--bold);
+    color: var(--white);
+    background-color: var(--blue-800);
+    cursor: pointer;
+    z-index: 0;
+}
+
+form > button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    border-radius: inherit;
+    background-image: linear-gradient(90deg, hsl(346, 100%, 66%), hsl(14, 96%, 62%));
+    transition: opacity 0.2s ease-in;
+}
+
+form > button:hover::before,
+form > button:focus::before {
+    opacity: 1;
+}
+
+.illustration {
+    object-fit: contain;
+}
+
+.illustration.tablet, .illustration.mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 52rem) {
+    body {
+        padding: 2rem 0;
+    }
+
+    main {
+        flex-direction: column;
+        width: 32rem;
+        height: fit-content;
+    }
+
+    .illustration.desktop {
+        display: none;
+    }
+
+    .illustration.tablet {
+        display: block;
+    }
+
+    .subscription {
+        justify-content: flex-start;
+        width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 34rem) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        width: 100vw;
+        min-height: 100vh;
+        padding-top: 0;
+        border-radius: 0;
+    }
+
+    .illustration.tablet {
+        display: none;
+    }
+
+    .illustration.mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 25rem) {
+    .subscription {
+        padding: 1rem;
+    }
+
+    .subscription > h1 {
+        font-size: 2.5rem;
+    }
+
+    .features > ul li + li {
+        margin-top: 0.75rem;
+    }
+}
